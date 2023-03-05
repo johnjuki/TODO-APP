@@ -42,7 +42,8 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-ol, ul {
+ol,
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -147,13 +148,111 @@ small,
 .stats span:first-child {
     background-color: var(--color-header);
     color: var(--color-text-muted);
-    border-radius: var(--global-border-radius) var(--global-border-radius) 0;
+    border-radius: var(--global-border-radius) 0 0 var(--global-border-radius);
+}
+
+.stats span:nth-child(2) {
+    background-color: var(--color-tertiary);
+    color: var(--color-body);
+    border-radius: 0 var(--global-border-radius) var(--global-border-radius) 0;
     font-weight: 700;
 }
 
-
 /* To Do List */
 
+.todos {
+    margin-bottom: 4rem;
+}
+
+.todos li {
+    background-color: white;
+    border-radius: var(--global-border-radius);
+    margin-bottom: 1rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todos li div {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+}
+
+.todos li.complete {
+    background-color: var(--color-disabled);
+    text-decoration: line-through;
+    color: var(--color-text-disabled);
+}
+
+input[type='checkbox'] {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--color-text);
+    border-radius: 100%;
+    display: grid;
+    place-content: center;
+    transition: var(--global-transition);
+}
+
+input[type='checkbox']::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px'%0Awidth='24' height='24'%0AviewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-miterlimit='10' stroke-width='2' d='M21 6L9 18 4 13'%3E%3C/path%3E%3C/svg%3E");
+    transform: scale(0);
+}
+
+input[type='checkbox']:checked {
+    background-color: var(--color-text-disabled);
+    border-color: var(--color-text-disabled);
+}
+
+input[type='checked']:checked::before {
+    transform: scale(1);
+}
+
+.todos li button {
+    border: 0;
+    padding: .25rem;
+    display: grid;
+    place-content: center;
+    background-color: transparent;
+}
+
+.todos li button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.todos li button svg path {
+    transition: var(--global-transition);
+}
+
+.todos li button:hover svg path {
+    stroke: var(--color-text);
+}
+
+.todos li button:active svg {
+    transform: scale(.8);
+}
+
+.todos li span {
+    padding: 2px;
+    border-radius: var(--global-border-radius);
+    transition: var(--global-transition);
+}
+
+.todos li span:focus {
+    background-color: var(--color-body);
+    outline: none;
+}
+
+.todos li span[contenteditable]:hover {
+    background-color: var(--color-body);
+}
 
 
 /* 768px and above */
@@ -186,5 +285,5 @@ small,
         transform: translateX(-100%);
         padding: 4rem;
     }
-    
+
 }
