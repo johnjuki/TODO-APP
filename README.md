@@ -1,1 +1,1 @@
-TODO APP
+A To-do list JavaScript app that allows adding tasks, editing them, marking them as complete, and deleting them. All this happens with the help of CSS, vanilla JavaScript, and the browser’s local storage.
